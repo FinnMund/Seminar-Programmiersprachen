@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Zig}
+\author{Finn Mund }
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Inroduction to Zig}
+
+\subsection{Overview}
+\begin{itemize}
+    \item General-purpose system programming language.
+    \item used for a wide range of tasks
+    \item Focuses on performance, safety, and maintainability.
+    \begin{itemize}
+        \item \textbf{Robust:} Software that is reliable and resistant to errors or crashes.
+        \item \textbf{Optimal:} Programs perform efficiently (fast, low resource usage).
+        \item \textbf{Reusable:} Software components can be reused in other projects or parts of the project without major changes.
+        \item \textbf{Maintainable:} Software can be easily maintained, updated, and improved over time.
+    \end{itemize}
+\end{itemize}
+
+\subsection{History and Creator}
+\begin{itemize}
+    \item First mentioned in a blog post by the developer Andrew Kelley on February 8, 2016 (earliest version).
+    \item The newest official version is 0.15.2, released on October 12, 2025.
+    \item There is no final release yet; the language is still in pre-1.0.
+    \item The founder is working full-time on it (June 7, 2018: "I Quit My Cushy Job at OkCupid to Live on Donations to Zig").
+\end{itemize}
+
+\subsection{Purpose - from Creators View}
+\begin{itemize}
+    \item The founder wanted to create a programming language: "my goal is to create a new programming language that is more pragmatic than C".
+    \item Goals:
+    \begin{itemize}
+        \item \textbf{Pragmatic:} Helps you get tasks done better than other languages.
+        \item \textbf{Optimal:} Natural code gives top-tier performance, equal to or better than C.
+        \item \textbf{Safe:} Safety is important; avoid errors without sacrificing too much performance.
+        \item \textbf{Readable:} Code should be easy to read; simple syntax and clear conventions.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Links}
+\begin{itemize}
+    \item \url{https://andrewkelley.me/}
+    \item \url{https://ziglang.org/download/}
+    \item \url{https://andrewkelley.me/post/intro-to-zig.html}
+\end{itemize}
+
+
+\section{What niche is the language supposed to fill?}
+
+\begin{itemize}
+    \item Zig is a modern, general-purpose system programming language.
+    \item It is designed to handle low-level tasks like C, but with a key innovation: it combines safety and performance. 
+    \item Safety issues in C: One major concern is memory safety.
+    \item \url{C's manual memory management and pointer arithmetic can lead to errors that are hard to catch.}
+    \item How Zig solves this problem:
+    \begin{itemize}
+        \item Manual memory control with safer abstractions: Zig does not perform hidden ("ghost") allocations, so developers explicitly manage all memory usage.
+        \item Forced error handling: All possible errors must be handled explicitly, either at compile-time or runtime, preventing silent failures and making programs more robust compared to C.
+        \item Prevents common pitfalls like null dereferencing and buffer overflows by design.
+    \end{itemize}
+    \item In comparison to other system programming languages: C is fast but unsafe, Rust is safe but slower. Zig aims to combine the advantages of both, providing a modern, efficient, and safe alternative.
+\end{itemize}
+
+
+
+\subsection{Links}
+\begin{itemize}
+    \item \url{https://en.wikipedia.org/wiki/Memory_safety}
+    item \url{https://ziglang.org/}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Why use Zig:}
+    \begin{itemize}
+        \item \textbf{Performance:} Zig delivers C-like speed with low-level control over memory and CPU.
+        \item \textbf{Safety:} Provides memory safety and robust error handling without garbage collection.
+        \item \textbf{Cross-compilation:} Easy to build for multiple platforms from a single codebase.
+        \item \textbf{Simplicity and readability:} Minimal syntax and clear conventions make code maintainable.
+        \item \textbf{Control:} Fine-grained management of resources and predictable runtime behavior.
+    \end{itemize}
+
+    \item \textbf{Where it can be used:}
+    \begin{itemize}
+        \item System programming: Operating systems, drivers, embedded software.
+        \item Performance-critical applications: Games, graphics engines, and real-time software.
+        \item Low-level tooling: Compilers, language servers, or other developer tools.
+        \item Cross-platform software: Applications that need to run reliably on multiple architectures.
+    \end{itemize}
+
+    \item \textbf{Sources / References:}
+    \begin{itemize}
+        \item \url{https://ziglang.org/}
+        \item \url{https://ziglang.org/learn/}
+        \item \url{https://ziglang.org/documentation/master/}
+        \item \url{https://andrewkelley.me/post/intro-to-zig.html}
+    \end{itemize}
+\end{itemize}
+
+
+
+\section {Prominent Projects}
+
+\begin{itemize}
+
+    \item \textbf{Bun:}  
+    A high-performance JavaScript and TypeScript runtime, designed as a direct drop-in replacement for Node.js.  
+    Bun uses Zig for its extremely low latency, seamless C interoperability, and precise control over memory and performance.
+
+    \item \textbf{Further explanation Bun:}  
+    Bun combines a runtime, bundler, transpiler, and package manager into one tool. It is mostly written in Zig to achieve maximum speed.(4 times faster then Node.js)
+    \begin{itemize}
+        \item \url{https://bun.com/docs}
+    \end{itemize}
+
+    \item \textbf{TigerBeetle:}  
+    A distributed database designed specifically for financial accounting and payment systems (OLTP – Online Transaction Processing).  
+    TigerBeetle emphasizes efficiency, predictability, and extreme performance, making Zig an ideal choice.
+    
+
+    \item \textbf{Further explanation TigerBeetle:}  
+    TigerBeetle is fully written in Zig and uses hand-optimized data structures, static memory allocation, cache-line optimization.    
+    \begin{itemize}
+        \item \url{https://docs.tigerbeetle.com/concepts/performance/}
+        \item \url{https://docs.tigerbeetle.com/start/}
+    \end{itemize}
+
+    \item \textbf{ZLS – Zig Language Server:}  
+    A language server for Zig that provides syntax highlighting, auto-completion, error analysis, and other editor features via the Language Server Protocol (LSP).
+
+    \item \textbf{Further explanation ZLS:}  
+     ZLS is written in Zig itself, showing that Zig can be used not only for low-level system projects but also for developer tooling.  
+     It is community-maintained and works with modern editors supporting LSP, such as VS Code, Neovim, and JetBrains IDEs.
+    \begin{itemize}
+        \item \url{https://github.com/zigtools/zls}
+    \end{itemize}
+\end{itemize}
+
+\section{How does the infrastructure around the language work?}
+\begin{itemize}
+    \item Build systems: integrated build system, which is written in Zig itself.
+    \item Package management: no official package manager.
+    \item Documentation: official Zig documentation provides comprehensive information on syntax, functions, the standard library, the build system, and usage examples.
+    \item IDEs: Zig is supported by editors via the Zig Language Server (ZLS), which provides features like syntax highlighting, autocompletion, and error checking in editors such as VS Code, Neovim, and JetBrains IDEs.
+    \item Testing: Zig has a built-in testing framework in the standard library that checks whether programs run correctly.
+    \item Community: Zig has a relatively small but growing user base; there are fewer resources compared to larger languages like C.
+
+    \begin{itemize}
+        \item \url{https://ziglang.org/documentation/master/#Build-Dependencies}
+        \item example for community: \url{https://ziggit.dev/}
+    \end{itemize}
+\end{itemize}
+
+\section{Code Projekt}
+\subsection{implementation}
+\subsection{performance increase}
+
+\section{conclusion}
+
+
+
+\end{document}
