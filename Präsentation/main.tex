@@ -1,0 +1,222 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usetheme{Madrid}        % Aussehen der Präsentation
+\usecolortheme{default} % Farben
+\usefonttheme{default}  % Schrift
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{sources.bib}
+
+\title{A short Introduction to Zig}
+\author{Finn Mund}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Content}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\section{History}
+\section{Why use Zig?}
+\section{What Niche is the language supposed to fill?}
+\section{Prominent Projects}
+\section{Infrastructure around the language}
+\section{Code}
+\section{Conclusion}
+
+
+\begin{frame}{Introduction}
+\begin{itemize}
+  \item System programming languages: OS, compilers, embedded systems
+  \item Direct hardware control and high performance
+  \item Established languages: C (fast, unsafe), Rust (safe, complex)
+  \item Zig: modern alternative between C and Rust
+  \item Focus on simplicity, control, and tooling
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \hspace{2cm} % Verschiebt alles um 2cm nach rechts
+    \begin{minipage}{0.6\textwidth}
+        \includegraphics[width=\textwidth]{Unbenannt}
+    \end{minipage}
+    \hfill 
+    \begin{minipage}{0.2\textwidth}
+        \small \cite{engheim2022whatmakeszigunique}
+    \end{minipage}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{History}
+\begin{itemize}
+  \item First announced by Andrew Kelley in 2016
+  \item 2018: Kelley works on Zig full-time
+  \item 2020: Zig Software Foundation founded (non-profit)
+  \item Still pre-1.0 (version 0.15.2 as of 2026)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Why use Zig?}
+\begin{itemize}
+  \item C-like performance with full low-level control
+  \item No garbage collection → predictable runtime behavior
+  \item Explicit memory management via allocators
+  \item Strong, explicit error handling (errors as values)
+  \item Compile-time execution with \texttt{comptime}
+  \item Built-in cross-compilation support
+  \item Simple, readable syntax for system-level code
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\begin{frame}{What niche does Zig fill?}
+\begin{itemize}
+  \item Systems programming dominated by C and Rust
+  \item C: fast and simple, but unsafe (leaks, overflows, null pointers)
+  \item Rust: safe and fast, but complex and restrictive
+  \item Zig builds on C, but improves safety explicitly
+  \item Safety without garbage collection or hidden runtime
+  \item Simpler model than Rust, fewer abstractions
+  \item Positioned between C and Rust
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Bun}
+\begin{itemize}
+  \item High-performance JavaScript runtime
+  \item All-in-one tool: runtime, package manager, test runner, bundler
+  \item Drop-in replacement for Node.js
+  \item Written in Zig, uses JavaScriptCore
+  \item \textbf{Goal:} Faster startup, lower memory usage, simpler tooling
+\end{itemize}
+\end{frame}
+
+\begin{frame}{TigerBeetle}
+\begin{itemize}
+  \item Distributed database for financial transactions (OLTP)
+  \item Extremely high throughput and low, predictable latency
+  \item Optimized for cost efficiency and long-term reliability
+  \item Written in Zig for full control over memory and performance
+  \item \textbf{Goal:} Reliable transaction processing at massive scale
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \hspace{2cm} % Verschiebt alles um 2cm nach rechts
+    \begin{minipage}{0.6\textwidth}
+        \includegraphics[width=\textwidth]{tiger}
+    \end{minipage}
+    \hfill 
+    \begin{minipage}{0.2\textwidth}
+        \small \cite{tigerbeetle2026}
+    \end{minipage}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Mach Engine}
+\begin{itemize}
+  \item Game engine for high-performance, cross-platform development
+  \item Minimal setup: Zig compiler as the only dependency
+  \item Focus on modularity and developer experience
+  \item Strong use of Zig’s cross-compilation features
+  \item \textbf{Goal:} Simple, modern alternative to complex C++ engines
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Zig Language Server (ZLS)}
+\begin{itemize}
+  \item Language server for Zig (LSP-based)
+  \item Provides autocompletion, diagnostics, and syntax highlighting
+  \item Works with VS Code, Neovim, JetBrains IDEs
+  \item Written in Zig itself
+  \item \textbf{Goal:} Improve developer productivity and tooling support
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Code: Positive Aspects}
+    \begin{itemize}
+        \item \textbf{Standard Library:} Extensive (FS, Strings, ASCII).
+        \item \textbf{Memory Control:} Explicit allocators \& \texttt{defer}.
+        \item \textbf{Predictability:} Better resource management.
+        \item \textbf{Error Handling:} \texttt{try} enforces robust code.
+    \end{itemize}
+\end{frame}
+
+% Slide 2: Cons
+\begin{frame}{Code: Challenges}
+    \begin{itemize}
+        \item \textbf{I/O Efficiency:} Hard-coded limits for large files.
+        \item \textbf{Rapid Evolution:} Frequent breaking changes.
+        \item \textbf{Outdated Docs:} Community info often outdated.
+        \item \textbf{Library Gaps:} Limited function documentation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{itemize}
+  \item Zig combines proven low-level concepts with modern approaches to memory management
+  \item Explicit control enables safety improvements without sacrificing performance
+  \item Real-world projects demonstrate Zig’s viability despite its pre-1.0 status
+  \item The non-profit foundation model builds trust and supports long-term innovation
+  \item Rapid language evolution remains a challenge, especially for new developers
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Sources -- URLs}
+\scriptsize
+\begin{itemize}
+  \item https://andrewkelley.me/post/intro-to-zig.html
+  \item https://andrewkelley.me/
+  \item https://andrewkelley.me/post/full-time-zig.html
+  \item https://ziglang.org/news/announcing-zig-software-foundation/
+  \item https://ziglang.org/zsf/
+  \item https://tigerbeetle.com/blog/2025-10-25-synadia-and-tigerbeetle-pledge-512k-to-the-zig-software-foundation/
+  \item https://ziglang.org/news/2025-financials/
+  \item https://ziglang.org/download/
+  \item https://www.tiobe.com/tiobe-index/
+  \item https://www.geeksforgeeks.org/c/security-issues-in-c-language/
+  \item https://www.netdata.cloud/academy/how-to-find-memory-leak-in-c/
+  \item https://www.code-intelligence.com/blog/buffer-overflows-complete-guide
+  \item https://learn.snyk.io/lesson/null-dereference/?ecosystem=cpp
+  \item https://zig.guide/language-basics/defer/
+  \item https://ziglang.org/documentation/master/std/#std.testing
+  \item https://zig.guide/language-basics/slices/
+  \item https://zig.guide/language-basics/pointers/
+  \item https://zig-by-example.com/pointers
+  \item https://dev.to/mukhilpadmanabhan/rust-vs-zig-the-new-programming-language-battle-for-performance-1p6
+  \item https://bun.com/docs
+  \item https://docs.tigerbeetle.com/start/
+  \item https://github.com/zigtools/zls
+  \item https://rock-the-prototype.com/programmieren-lernen/node-js/
+  \item https://docs.tigerbeetle.com/concepts/performance/
+  \item https://ziglang.org/learn/tools/
+  \item https://ziglang.org/documentation/master/#Build-Dependencies
+  \item https://ziglang.org/learn/build-system/
+  \item https://ziggit.dev/
+  \item https://ziglang.org/documentation/master/std/
+  \item https://ziglang.org/documentation/master/#Zig-Test
+  \item https://www.invensis.net/blog/applications-of-c-and-c-plus-plus-in-the-real-world
+  \item https://en.wikipedia.org/wiki/System_programming_language
+  \item https://ziglang.org/learn/overview/
+  \item https://dev.to/hexshift/manual-memory-management-in-zig-allocators-demystified-46ne
+  \item https://zig.guide/language-basics/errors/
+  \item https://ziglang.org/documentation/master/#Errors
+  \item https://zig.guide/language-basics/comptime/
+  \item https://zig.guide/build-system/cross-compilation/
+  \item https://ziglang.org/learn/why_zig_rust_d_cpp/
+  \item https://machengine.org/about/goals/
+  \item https://machengine.org/
+\end{itemize}
+\end{frame}
+\printbibliography
+
+
+\end{document}
